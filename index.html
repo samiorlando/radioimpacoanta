@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio impacto 89.1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-visualizer">
+        <canvas id="visualizer-canvas"></canvas>
+    </div>
+    <div class="background-overlay"></div>
+
+    <main class="player-container">
+        <div class="glass-panel">
+            <h1 class="radio-title">Radio impacto</h1>
+
+            <div class="album-art-container">
+                <img id="album-art" src="https://i.ibb.co/fzxKTMpG/RADIO-IMPACTO-LOGO.png" alt="Album Art">
+                <div class="visualizer-ring"></div>
+            </div>
+
+            <div class="track-info">
+                <h2 id="track-title" class="scrolling-text">Esperando información...</h2>
+                <h3 id="artist-name">anta cusco peru</h3>
+            </div>
+
+            <div class="controls">
+                <button id="play-pause-btn" class="control-btn play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+
+                <div class="social-icons">
+                    <a href="tel:9999999" class="social-link s-phone" title="Llamar"><i
+                            class="fas fa-phone-alt"></i></a>
+                    <a href="https://www.whatsapp.com" target="_blank" class="social-link s-whatsapp"
+                        title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com" target="_blank" class="social-link s-facebook"
+                        title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="social-link s-instagram"
+                        title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="social-link s-twitter" title="Twitter"><i
+                            class="fab fa-twitter"></i></a>
+                </div>
+
+                <div class="volume-container">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.8">
+                </div>
+            </div>
+
+            <div class="status-bar">
+                <span id="live-indicator" class="live-badge">LIVE</span>
+                <span id="stream-time">00:00</span>
+            </div>
+        </div>
+    </main>
+
+    <audio id="audio-stream" crossorigin="anonymous">
+        <source src="https://sonic.dattassd.com/8132/stream" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

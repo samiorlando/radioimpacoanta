@@ -1,0 +1,310 @@
+:root {
+    --primary-color: #6366f1;
+    --secondary-color: #a855f7;
+    --text-color: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: #0f172a;
+    color: var(--text-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Background & Visualizer */
+.background-visualizer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+#visualizer-canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, #0f172a 90%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Player Container */
+.player-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px 30px;
+    box-shadow: var(--glass-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    transition: transform 0.3s ease;
+}
+
+.glass-panel:hover {
+    transform: translateY(-5px);
+}
+
+.radio-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Album Art */
+.album-art-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+#album-art {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.playing #album-art {
+    transform: scale(1.05);
+}
+
+/* Track Info */
+.track-info {
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+#track-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    white-space: nowrap;
+}
+
+.scrolling-text {
+    /* Simple marquee effect if needed via JS or CSS animation */
+}
+
+#artist-name {
+    font-size: 1rem;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.control-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.social-link {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+}
+
+.social-link:hover {
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Brand Colors on Hover */
+.s-phone:hover {
+    background: #22c55e;
+    box-shadow: 0 5px 15px rgba(34, 197, 94, 0.4);
+}
+
+.s-whatsapp:hover {
+    background: #25D366;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+
+.s-facebook:hover {
+    background: #1877F2;
+    box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
+}
+
+.s-instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    box-shadow: 0 5px 15px rgba(214, 36, 159, 0.4);
+}
+
+.s-twitter:hover {
+    background: #1DA1F2;
+    box-shadow: 0 5px 15px rgba(29, 161, 242, 0.4);
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 80%;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.volume-container:hover {
+    opacity: 1;
+}
+
+#volume-slider {
+    flex-grow: 1;
+    -webkit-appearance: none;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    outline: none;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Status Bar */
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-top: 10px;
+}
+
+.live-badge {
+    background-color: #ef4444;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.live-badge::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .glass-panel {
+        padding: 30px 20px;
+    }
+
+    .album-art-container {
+        width: 200px;
+        height: 200px;
+    }
+}
